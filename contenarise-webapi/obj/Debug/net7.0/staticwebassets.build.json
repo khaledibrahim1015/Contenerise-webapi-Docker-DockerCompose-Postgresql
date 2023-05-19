@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XNIAymBHNrZEhBjl4ACAUM5EDC9q3Eaa2ho8Chij0jM=",
+  "Source": "contenarise-webapi",
+  "BasePath": "_content/contenarise-webapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
