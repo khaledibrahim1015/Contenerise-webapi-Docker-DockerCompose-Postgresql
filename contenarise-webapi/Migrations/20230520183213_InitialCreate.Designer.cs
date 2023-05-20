@@ -11,8 +11,8 @@ using contenarise_webapi;
 namespace contenarise_webapi.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20230519211956_initial-migration")]
-    partial class initialmigration
+    [Migration("20230520183213_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

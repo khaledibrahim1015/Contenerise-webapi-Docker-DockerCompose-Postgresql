@@ -1,0 +1,40 @@
+version: '3.4'
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  webapiapp:
+    image: docker.io/library/conenarisewebapiapp
+    container_name: webapiapp-services
+    depends_on:
+      - "app_db"
+    ports:
+      - "8088:80"
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=app_db;Port=5432;Database=SampleDBDriver;IntegratedSecurity=true;Pooling=true;
+      - ASPNETCORE_URLS=http://+80
+    networks:
+      - dev
+
+  app_db:
+    image: postgres:latest
+    container_name: app_db
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=SampleDBDriver
+    networks:
+      - dev
+    volumes:
+      - app_data:/var/lib/postgresql/data
+
+volumes:
+  app_data:
